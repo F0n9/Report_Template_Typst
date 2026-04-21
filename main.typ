@@ -13,8 +13,8 @@
   members: members,
   instructors: instructors,
   date: submission_date,
-  logo: "assets/logo.png",
-  border: "assets/border.png",
+  logo: "../assets/logo.png",
+  border: "../assets/border.png",
 )
 
 // Nội dung báo cáo bắt đầu từ đây
