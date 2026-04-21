@@ -1,6 +1,6 @@
 # Typst output
 *.pdf
-!demo.pdf
+!main.pdf
 
 # Operating system files
 .DS_Store
