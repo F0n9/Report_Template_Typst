@@ -10,9 +10,10 @@
   department: "",
   course: "",
   class: "",
-  group: "",
-  members: (),
-  instructors: (),
+  author_name: "",
+  author_id: "",
+  author_email: "",
+  instructor: "",
   date: "",
   logo: none,
   border: none,
@@ -108,63 +109,31 @@
     #text(24pt, weight: "bold", fill: title_color)[#title]
     #v(0.4cm)
     #text(22pt, weight: "bold")[#subtitle]
-    #v(0.4cm)
-    #align(center)[
-      #set text(15pt)
-      #grid(
-        columns: (auto, auto),
-        column-gutter: 0.3cm,
-        row-gutter: 0.2cm,
-        align: (left, left),
-        [*Môn học:*], [#course],
-        [*Lớp:*], [#class],
-      )
-    ]
     #v(1.5cm)
   ]
 
   align(center)[
-    #block(width: 86%)[
+    #block(width: 80%)[
       #line(length: 100%, stroke: 0.6pt + luma(160))
       #v(0.5cm)
 
-      #grid(
-        columns: (1.25fr, 1fr),
-        column-gutter: 1.2cm,
-        [
-          #align(left)[
-            #text(weight: "semibold", 12pt)[#group]
-            #v(0.15cm)
-            #table(
-              columns: (1fr, auto),
-              stroke: (x, y) => if x == 1 { (left: 0.8pt + title_color) } else { none },
-              align: (left, right),
-              inset: (col, row) => (
-                left: if col == 0 { 0pt } else { 8pt },
-                right: 8pt,
-                y: 4.5pt,
-              ),
-              ..for (name, id) in members {
-                ([#name], [#id])
-              }
-            )
-          ]
-        ],
-        [
-          #align(left)[
-            #text(weight: "semibold", 12pt)[Giảng viên hướng dẫn]
-            #v(0.15cm)
-            #table(
-              columns: (auto,),
-              stroke: none,
-              inset: (left: 0pt, right: 0pt, y: 4.5pt),
-              ..for instr in instructors {
-                ([#instr],)
-              }
-            )
-          ]
-        ],
-      )
+      #set text(13pt)
+      #align(center)[
+        #grid(
+          columns: (auto, auto),
+          column-gutter: 0.6cm,
+          row-gutter: 0.4cm,
+          align: (left, left),
+          [*Họ và tên:*], [#author_name],
+          [*MSSV:*], [#author_id],
+          [*Lớp:*], [#class],
+          [*Email:*], [#author_email],
+          [*Giảng viên hướng dẫn:*], [#instructor],
+        )
+      ]
+      
+      #v(0.5cm)
+      #line(length: 100%, stroke: 0.6pt + luma(160))
     ]
   ]
 
@@ -198,7 +167,7 @@
     strong(text(fill: title_color, it))
   }
 
-  outline(title: [Mục lục], depth: 3, indent: auto)
+  outline(title: align(center)[Mục lục], depth: 3, indent: auto)
   pagebreak()
 
   body
