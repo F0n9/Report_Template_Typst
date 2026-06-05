@@ -127,7 +127,7 @@
           [*Họ và tên:*], [#author_name],
           [*MSSV:*], [#author_id],
           [*Lớp:*], [#class],
-          [*Email:*], [#author_email],
+          [*Email:*], [#link("mailto:" + author_email)[#author_email]],
           [*Giảng viên hướng dẫn:*], [#instructor],
         )
       ]
